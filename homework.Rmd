@@ -15,6 +15,7 @@ library(sp)
 library(maptools)
 library(maps)
 library(mapdata)
+library(spatstat)
 
 locs = read.csv(file="Data/trees.txt", header=T, sep="\t")
 
@@ -35,7 +36,10 @@ projLocs<-spTransform(locs, CRS("+init=epsg:2163"))
 
 # Here, please add codes to generate the kernel density estimation map
 # of the trees.
-
+xy=coordinates(projLocs)
+pattern<-ppp(xy[,1], xy[,2],range(xy[,1]), range(xy[,2]) )
+plot(density(pattern, sigma=10))
+plot(density(pattern, sigma=10000))
 
 # Please repeat the above KDE codes using the following options of
 # `sigma` parameters and describe the difference: `sigma=10`,
@@ -44,5 +48,8 @@ projLocs<-spTransform(locs, CRS("+init=epsg:2163"))
 
 # Please add codes to generate the sample curves of K functions and
 # run test to verify whether the data are clustered or not.
+
+plot(envelope(pattern, nsim=99,Kest))
+
 
 ```
