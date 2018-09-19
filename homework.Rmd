@@ -46,5 +46,6 @@ pattern<-ppp(xy[,1], xy[,2],range(xy[,1]), range(xy[,2]) )
 
 # Please add codes to generate the sample curves of K functions and
 # run test to verify whether the data are clustered or not.
+# Hint: use functions of Kest() and envelope()
 
 ```
