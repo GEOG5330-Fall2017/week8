@@ -1,5 +1,5 @@
 ---
-title: "Week 8 Homework"
+title: "Week 4 Homework"
 output: github_document
 ---
 
@@ -9,7 +9,7 @@ lines codes in the following snippets of the codes to address the question I put
 in the comments:
 
 
-```{r hw7, eval=T, echo=T}
+```{r hw4, eval=T, echo=T}
 # plot the trees 
 library(sp)
 library(maptools)
@@ -38,8 +38,6 @@ projLocs<-spTransform(locs, CRS("+init=epsg:2163"))
 # of the trees.
 xy=coordinates(projLocs)
 pattern<-ppp(xy[,1], xy[,2],range(xy[,1]), range(xy[,2]) )
-plot(density(pattern, sigma=10))
-plot(density(pattern, sigma=10000))
 
 # Please repeat the above KDE codes using the following options of
 # `sigma` parameters and describe the difference: `sigma=10`,
@@ -48,8 +46,5 @@ plot(density(pattern, sigma=10000))
 
 # Please add codes to generate the sample curves of K functions and
 # run test to verify whether the data are clustered or not.
-
-plot(envelope(pattern, nsim=99,Kest))
-
 
 ```
